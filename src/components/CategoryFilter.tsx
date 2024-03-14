@@ -23,13 +23,10 @@ export const CategoryFilter = ({
         bg={"white"}
         placeholder="Select category"
         onChange={(e) => setSelectedCategory(e.target.value)}
+        value={selectedCategory}
       >
         {categories?.map((category) => (
-          <option
-            key={category}
-            value={category}
-            selected={category === selectedCategory}
-          >
+          <option key={category} value={category}>
             {category}
           </option>
         ))}

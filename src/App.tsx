@@ -10,6 +10,7 @@ import {
   FormLabel,
   Heading,
   Select,
+  SimpleGrid,
   Stack,
   Text,
   Wrap,
@@ -50,13 +51,22 @@ function App() {
             </Alert>
           )}
           {!!filteredProducts && (
-            <Wrap justifyContent="stretch" spacing={6}>
+            <SimpleGrid
+              justifyContent="stretch"
+              spacing={6}
+              columns={{
+                base: 1,
+                sm: 2,
+                md: 2,
+                lg: 4,
+              }}
+            >
               {filteredProducts?.map((product) => (
-                <WrapItem>
+                <div key={product.id}>
                   <ProductCard key={product.id} product={product} />
-                </WrapItem>
+                </div>
               ))}
-            </Wrap>
+            </SimpleGrid>
           )}
         </Stack>
       </Container>
